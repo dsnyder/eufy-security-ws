@@ -80,16 +80,16 @@ if [ -n "${STATION_IP_ADDRESSES}" ]; then
         if [ $index -eq 0 ]; then
             STATION_IP_ADDRESSES_ARG="--arg ${TMP_DATA[0]} ${TMP_DATA[1]}"
             if [ $((${#STATION_DATA[@]}-1)) -gt 0 ]; then
-                STATION_IP_ADDRESSES_JQ="stationIPAddresses: { \$${TMP_DATA[0]}"
+                STATION_IP_ADDRESSES_JQ="stationIPAddresses: { ${TMP_DATA[0]}"
             else
-                STATION_IP_ADDRESSES_JQ="stationIPAddresses: { \$${TMP_DATA[0]} }"
+                STATION_IP_ADDRESSES_JQ="stationIPAddresses: { ${TMP_DATA[0]} }"
             fi
         else
             STATION_IP_ADDRESSES_ARG="$STATION_IP_ADDRESSES_ARG --arg ${TMP_DATA[0]} ${TMP_DATA[1]}"
             if [ $index -eq $((${#STATION_DATA[@]}-1)) ]; then
-                STATION_IP_ADDRESSES_JQ="$STATION_IP_ADDRESSES_JQ, \$${TMP_DATA[0]} }"
+                STATION_IP_ADDRESSES_JQ="$STATION_IP_ADDRESSES_JQ, ${TMP_DATA[0]} }"
             else
-                STATION_IP_ADDRESSES_JQ="$STATION_IP_ADDRESSES_JQ, \$${TMP_DATA[0]}"
+                STATION_IP_ADDRESSES_JQ="$STATION_IP_ADDRESSES_JQ, ${TMP_DATA[0]}"
             fi
         fi
     done
